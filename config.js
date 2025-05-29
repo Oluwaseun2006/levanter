@@ -9,13 +9,13 @@ const DATABASE_URL =
   process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL
 module.exports = {
   VERSION: require('./package.json').version,
-  SESSION_ID: (process.env.SESSION_ID || '').trim(),
+  SESSION_ID: (process.env.SESSION_ID || 'levanter_305209fb8df5e8409ca0e39956664bf40f').trim(),
   DATABASE:
     DATABASE_URL === databasePath
       ? new Sequelize({
           dialect: 'sqlite',
           storage: DATABASE_URL,
-          logging: false,
+          logging: false, 
         })
       : new Sequelize(DATABASE_URL, {
           dialect: 'postgres',
